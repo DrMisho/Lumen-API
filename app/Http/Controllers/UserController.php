@@ -22,7 +22,9 @@ class UserController extends Controller
         ]);
         $request['password'] = Hash::make($request['password']);
         $user = \App\Models\User::create($request->all());
-        $user['api_token'] = $this->respondWithToken($token);
+        $user['api_token'] = token_name($user->id);
+        $user->save();
+        return response($user);
     }
     public function login(Request $request)
     {
