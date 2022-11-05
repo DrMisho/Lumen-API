@@ -94,20 +94,6 @@ $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
  $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
-if (!function_exists('config_path')) {
-    /**
-     * Get the configuration path.
-     *
-     * @param string $path
-     * @return string
-     */
-    function config_path($path = '')
-    {
-        return app()->configPath($path);
-    }
-}
-
-$app->register(Spatie\MediaLibrary\MediaLibraryServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes

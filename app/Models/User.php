@@ -20,7 +20,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'username', 'password'
+        'name', 'email', 'username', 'password', 'api_token'
     ];
 
     /**
@@ -35,7 +35,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function getJWTIdentifier()
     {
         // Return your unique user identifier like email or username, change according to user column name
-        return $this->attributes['username'];
+        return $this->getKey();
     }
     public function getJWTCustomClaims()
     {
